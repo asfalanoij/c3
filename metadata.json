@@ -1,0 +1,6 @@
+{
+  "name": "APAC Compliance Framework Dashboard_v4",
+  "description": "A comprehensive dashboard for managing security, risk, and compliance for payment processing across Asia-Pacific markets. It provides an overview of compliance status, regional requirements, technology stack, and incident response protocols. V3-Enhance 3rd PRM scoring and ISO 27001:2022 Annex Control A, ISO 27002:2019, SOC 2 Type II\nV-4: Refactored for production-staged back-end\n",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
