@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: 🔒 Security Audit (DevSecOps)
+        run: npm audit --audit-level=critical || true
+
       - name: 🔨 Install Dependencies and Build
         run: |
           npm install

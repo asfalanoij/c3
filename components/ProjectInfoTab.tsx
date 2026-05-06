@@ -1,4 +1,5 @@
 import React from 'react';
+import DOMPurify from 'dompurify';
 import { Card, CardTitle, CodeBlock } from './common';
 import { BookMarked, Package, Rocket, Info, FolderTree, ShieldCheck } from 'lucide-react';
 import { README_CONTENT, DEPENDENCIES_CONTENT, MVP_VISION, PROJECT_STRUCTURE_CONTENT, IP_NOTICE_CONTENT } from '../data';
@@ -6,7 +7,8 @@ import { README_CONTENT, DEPENDENCIES_CONTENT, MVP_VISION, PROJECT_STRUCTURE_CON
 const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => {
     // Process inline markdown (bold)
     const renderInline = (text: string) => {
-        return { __html: text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') };
+        const html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        return { __html: DOMPurify.sanitize(html) };
     };
 
     const blocks = content.trim().split(/\n\s*\n/); // Split into paragraphs/blocks
