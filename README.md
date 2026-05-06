@@ -1,20 +1,42 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# APAC Compliance Framework Dashboard
 
-# Run and deploy your AI Studio app
+A React/Vite dashboard for tracking Governance, Risk, and Compliance (GRC) metrics across the APAC region.
 
-This contains everything you need to run your app locally.
+## Tech Stack
+- **Framework**: React 18 + Vite
+- **Styling**: Tailwind CSS
+- **Data Visualization**: D3.js (Sankey diagrams)
+- **Security**: DOMPurify (XSS prevention)
+- **Export**: jsPDF (PDF reports)
 
-View your app in AI Studio: https://ai.studio/apps/cb7b2ae9-116d-4b4d-9fcf-b00a5a64db56
+## Local Development
 
-## Run Locally
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-**Prerequisites:**  Node.js
+2. **Environment Variables**
+   Create a `.env.local` file in the root directory:
+   ```env
+   GEMINI_API_KEY=your_api_key_here
+   ```
 
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Deployment
+
+Deployment is handled automatically via GitHub Actions (`.github/workflows/deploy.yml`).
+
+- **Trigger:** Pushes to the `main` branch.
+- **Process:** 
+  1. Runs `npm audit` (fails on critical vulnerabilities).
+  2. Builds the static production output (`dist/`).
+  3. Deploys to Hostinger (`c3.rudyprasetiya.com`) via FTP.
+- **Required GitHub Secrets:**
+  - `FTP_SERVER`
+  - `FTP_USERNAME`
+  - `FTP_PASSWORD`
